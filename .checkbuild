@@ -1,0 +1,26 @@
+{
+  "checkbuild": {
+    "enable": ["jshint", "jsinspect", "jscs",  "nsp", "david"],
+    // don't exit immediately if one of the tools reports an error
+    "continueOnError": true,
+    // don't exit(1) even if we had some failures
+    "allowFailures": false
+  },
+  "jshint": {
+    "args": ["**/*.js", "!*assets/vendor/**", "!*node_modules/**"]
+  },
+  "jscs": {
+    "args": ["**/*.js", "!*assets/vendor/**", "!*node_modules/**"],
+    "url":"https://raw.githubusercontent.com/FGRibreau/javascript/master/.jscsrc"
+  },
+  "jsinspect": {
+    "args": ["**/*.js", "!**/*.test.js", "!*assets/vendor/**", "!*node_modules/**", "!*tests/**"],
+    "diff": true,
+    "threshold": 40
+  },
+  "buddyjs": {
+    "args": ["**/*.js", "!*assets/vendor/**", "!*node_modules/**"],
+    "ignore": [0, 1, 200]
+  },
+  "nsp": {}
+}
