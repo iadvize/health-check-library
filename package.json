@@ -1,6 +1,6 @@
 {
   "name": "iadvize-health-check-library",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Expose an health-check API to *-worker or a health-check route for already existing API",
   "main": "javascript/hapi/register.js",
   "private": true,
