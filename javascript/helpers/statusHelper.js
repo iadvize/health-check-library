@@ -1,8 +1,10 @@
 'use strict';
-
+var statusCode = 500;
 module.exports = {
-  statusCode: 500,
-  changeStatus: function(newStatus) {
-    this.statusCode = newStatus ? 200 : 400;
+  statusCode: function () {
+    return statusCode;
+  },
+  changeStatus: function (newStatus) {
+    statusCode = newStatus ? 200 : 400;
   }
 };

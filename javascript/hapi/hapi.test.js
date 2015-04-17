@@ -30,6 +30,25 @@ describe('health-check-library', function () {
       });
     });
 
+    it('should yield 200 is healty was set to true', function (done) {
+      var healthy = plugin.register(server);
+      server.inject({
+        method: 'get',
+        url: '/_health'
+      }, function (res) {
+        t.strictEqual(500, res.statusCode);
+        healthy(true);
+
+        server.inject({
+          method: 'get',
+          url: '/_health'
+        }, function (res) {
+          t.strictEqual(200, res.statusCode);
+          done();
+        });
+      });
+    });
+
     it('should not yield 200 on non-registered route', function (done) {
       plugin.register(server);
       server.inject({

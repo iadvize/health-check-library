@@ -20,7 +20,7 @@ function plugin(server, options, next) {
     method: 'GET',
     path: '/_health',
     handler: function (request, reply) {
-      reply().code(statusHelper.statusCode);
+      reply().code(statusHelper.statusCode());
     }
   });
 };
