@@ -15,7 +15,7 @@ describe('health-check-library', function () {
   });
 
   describe('.register', function () {
-    it('should return a function', function() {
+    it('should return a function', function () {
       t.isFunction(plugin.register(server));
     });
 

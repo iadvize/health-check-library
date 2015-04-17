@@ -8,7 +8,14 @@ var statusHelper = require('../helpers/statusHelper');
  * @param  {object,null}    options whatever options the user passes to the plugin
  * @param  {Function} next    [description]
  */
-exports.register = function (server, options, next) {
+exports.register = function (server, f) {
+  server.register({
+    register: plugin
+  }, f);
+  return statusHelper.changeStatus;
+};
+
+function plugin(server, options, next) {
   server.route({
     method: 'GET',
     path: '/_health',
@@ -16,11 +23,8 @@ exports.register = function (server, options, next) {
       reply().code(statusHelper.statusCode);
     }
   });
-
-  console.log(statusHelper.changeStatus);
-  return statusHelper.changeStatus;
 };
 
-exports.register.attributes = {
+plugin.attributes = {
   pkg: require('../../package.json')
 };
