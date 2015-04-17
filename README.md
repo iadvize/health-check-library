@@ -2,7 +2,7 @@
 
 > Expose an health-check API to *-worker or a health-check route for already existing API
 
-**Kubernetes** (Google Container Engine, Clever-cloud and so on...) requires every processes to expose an HTTP API so it can ensure the service is up. 
+**Kubernetes** (Google Container Engine, Clever-cloud and so on...) requires every processes to expose an HTTP API [so it can ensure the service is up](https://github.com/GoogleCloudPlatform/kubernetes/blob/06a1d6dd839a7169270ed09a1829381696fcca45/pkg/probe/http/http.go#L53-56). 
 
 <p align="center">
     <img src="https://cloud.githubusercontent.com/assets/138050/7140277/be87ed10-e2ca-11e4-96ec-b6e086321bac.gif" style="width:1000%" />
@@ -36,8 +36,10 @@ require('health-check-library')(port [, callback]);
 If `health-check-library` was not able to bind to the specified port it will throw an error and make the worker crash (that's [a good thing](http://en.wikipedia.org/wiki/Fail-fast)).
 
 ```
-require('health-check-library/javascript/pure')(8080, function onListening(){
-    console.log('ready');
+var healthy = require('health-check-library/javascript/pure')(8080, function onListening(){
+
+    // do some initializations
+    healthy(true); // you are ready
 });
 ```
 
@@ -48,7 +50,13 @@ Use this when your NodeJS process already exposes an HTTP API with HAPI. Please 
 If `health-check-library` was not able to register itself to the HAPI server it will throw an error and will make the process crash (that's [a good thing](http://en.wikipedia.org/wiki/Fail-fast)).
 
 ```
-require('health-check-library').register(server);
+var healthy = require('health-check-library').register(server);
+
+// by default GET /health will yield a 500 error
+
+healthy(true);
+
+// now GET /health yield an 200 success
 ```
 
 * always = 99.9% of the time
