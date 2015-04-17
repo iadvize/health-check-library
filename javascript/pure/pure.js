@@ -2,7 +2,7 @@
 
 var http = require('http');
 var url = require('url');
-
+var statusHelper = require('../helpers/statusHelper');
 
 /**
  * Create an HTTP server that always yield 200 HTTP status code
@@ -12,6 +12,7 @@ var url = require('url');
 function createServer(port, f) {
   f = f || noop;
   http.createServer(handler).listen(port, f);
+  return statusHelper.changeStatus;
 }
 
 /**
@@ -21,7 +22,7 @@ function createServer(port, f) {
  */
 function handler(req, res) {
   // catch-all handler
-  res.writeHead(200, {
+  res.writeHead(statusHelper.statusCode, {
     'Content-Type': 'application/json'
   });
   res.end();
