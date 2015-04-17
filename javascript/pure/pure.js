@@ -22,7 +22,7 @@ function createServer(port, f) {
  */
 function handler(req, res) {
   // catch-all handler
-  res.writeHead(statusHelper.statusCode, {
+  res.writeHead(statusHelper.statusCode(), {
     'Content-Type': 'application/json'
   });
   res.end();
