@@ -12,7 +12,6 @@ var statusHelper = require('../helpers/statusHelper');
 function createServer(port, f) {
   f = f || noop;
   http.createServer(handler).listen(port, f);
-
   return statusHelper.changeStatus;
 }
 
@@ -23,7 +22,7 @@ function createServer(port, f) {
  */
 function handler(req, res) {
   // catch-all handler
-  res.writeHead(200, {
+  res.writeHead(statusHelper.statusCode, {
     'Content-Type': 'application/json'
   });
   res.end();
