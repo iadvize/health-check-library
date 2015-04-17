@@ -15,13 +15,17 @@ describe('health-check-library', function () {
   });
 
   describe('.register', function () {
+    it('should return a function', function() {
+      t.isFunction(plugin.register(server));
+    });
+
     it('should register the health plugin', function (done) {
       plugin.register(server);
       server.inject({
         method: 'get',
         url: '/_health'
       }, function (res) {
-        t.strictEqual(200, res.statusCode);
+        t.strictEqual(500, res.statusCode);
         done();
       });
     });

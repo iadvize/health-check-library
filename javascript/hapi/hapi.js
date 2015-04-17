@@ -1,5 +1,7 @@
 'use strict';
 
+var statusHelper = require('../helpers/statusHelper');
+
 /**
  * HAPI Plugin
  * @param  {object}         server  a reference to the server the plugin is being loaded in
@@ -11,9 +13,12 @@ exports.register = function (server, options, next) {
     method: 'GET',
     path: '/_health',
     handler: function (request, reply) {
-      reply().code(200);
+      reply().code(statusHelper.statusCode);
     }
   });
+
+  console.log(statusHelper.changeStatus);
+  return statusHelper.changeStatus;
 };
 
 exports.register.attributes = {
