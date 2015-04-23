@@ -22,8 +22,9 @@
   },
   "devDependencies": {
     "chai": "^2.2.0",
+    "check-build": "*",
     "hapi": "^8.4.0",
     "mocha": "^2.2.4",
-    "check-build": "*"
+    "xunit-file": "0.0.6"
   }
 }
