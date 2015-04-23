@@ -101,6 +101,5 @@
         "t",
         "async",
         "supertest",
-        "assert",
         "PrettyError"]       // additional predefined global variables
 }

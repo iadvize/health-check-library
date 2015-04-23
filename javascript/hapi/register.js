@@ -9,7 +9,9 @@ module.exports = {
 
     return plugin.register(server, function (err) {
       if (err) {
-        throw err; // fail fast, no need to go further
+
+        // fail fast, no need to go further
+        throw err;
       }
     });
   }

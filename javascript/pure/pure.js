@@ -1,7 +1,6 @@
 'use strict';
 
 var http = require('http');
-var url = require('url');
 var statusHelper = require('../helpers/statusHelper');
 
 /**
@@ -21,6 +20,7 @@ function createServer(port, f) {
  * @param  {Response} res
  */
 function handler(req, res) {
+
   // catch-all handler
   res.writeHead(statusHelper.statusCode(), {
     'Content-Type': 'application/json'
@@ -28,8 +28,9 @@ function handler(req, res) {
   res.end();
 }
 
-
 function noop() {}
 
 module.exports = createServer;
-exports.handler = handler; // for tests
+
+// for tests
+exports.handler = handler;

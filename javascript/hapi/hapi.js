@@ -15,7 +15,7 @@ exports.register = function (server, f) {
   return statusHelper.changeStatus;
 };
 
-function plugin(server, options, next) {
+function plugin(server) {
   server.route({
     method: 'GET',
     path: '/_health',
@@ -23,7 +23,7 @@ function plugin(server, options, next) {
       reply().code(statusHelper.statusCode());
     }
   });
-};
+}
 
 plugin.attributes = {
   pkg: require('../../package.json')
