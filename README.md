@@ -10,6 +10,14 @@
 
 Instead of duplicating code everywhere in the code, the `health-check-library` simply expose a route in a language-agnostic and unified way.
 
+# npm
+
+```bash
+npm install health-check-library --save
+```
+
+
+
 # Specification
 
 `health-check-library` **MUST** expose a **GET /_health** route that yield a **200 HTTP status code**.
