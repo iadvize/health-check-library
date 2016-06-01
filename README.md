@@ -60,11 +60,11 @@ If `health-check-library` was not able to register itself to the HAPI server it 
 ```
 var healthy = require('health-check-library').register(server);
 
-// by default GET /health will yield a 500 error
+// by default GET /_health will yield a 500 error
 
 healthy(true);
 
-// now GET /health yield an 200 success
+// now GET /_health yield an 200 success
 ```
 
 * always = 99.9% of the time
