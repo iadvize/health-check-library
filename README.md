@@ -1,8 +1,9 @@
-# health-check-library [![Deps](https://david-dm.org/iadvize/health-check-library.png)](https://david-dm.org/iadvize/health-check-library) [![Version](http://badge.fury.io/js/health-check-library.png)](https://david-dm.org/iadvize/health-check-library)
+health-check-library [![Deps](https://david-dm.org/iadvize/health-check-library.png)](https://david-dm.org/iadvize/health-check-library) [![Version](http://badge.fury.io/js/health-check-library.png)](https://david-dm.org/iadvize/health-check-library)
+====================
 
 > Expose an health-check API to *-worker or a health-check route for already existing API
 
-**Kubernetes** (Google Container Engine, Clever-cloud and so on...) requires every processes to expose an HTTP API [so it can ensure the service is up](https://github.com/GoogleCloudPlatform/kubernetes/blob/06a1d6dd839a7169270ed09a1829381696fcca45/pkg/probe/http/http.go#L53-56). 
+**Kubernetes** (Google Container Engine, Clever-cloud and so on...) requires every processes to expose an HTTP API [so it can ensure the service is up](https://github.com/GoogleCloudPlatform/kubernetes/blob/06a1d6dd839a7169270ed09a1829381696fcca45/pkg/probe/http/http.go#L53-56).
 
 <p align="center">
     <img src="https://cloud.githubusercontent.com/assets/138050/7140277/be87ed10-e2ca-11e4-96ec-b6e086321bac.gif" style="width:1000%" />
@@ -10,27 +11,11 @@
 
 Instead of duplicating code everywhere in the code, the `health-check-library` simply expose a route in a language-agnostic and unified way.
 
-# npm
+features :
+* Language agnostic, if it's not supported in your current language **simply send a PR that follows the above conventions**
+* Framework agnostic, if the framework you use is not supported **simply send a PR that follows the above conventions**
 
-```bash
-npm install health-check-library --save
-```
-
-
-
-# Specification
-
-`health-check-library` **MUST** expose a **GET /_health** route that yield a **200 HTTP status code**.
-`health-check-library` follows [semver](http://semver.org) so any non-backward-compatible change will be a major release.
-
-# Features
-
-- Language agnostic, if it's not supported in your current language **simply send a PR that follows the above conventions**
-- Framework agnostic, if the framework you use is not supported **simply send a PR that follows the above conventions**
-
-# Currently supported
-
-## JavaScript
+## Examples
 
 ### JavaScript / pure (without an existing HTTP API)
 
@@ -68,3 +53,22 @@ healthy(true);
 ```
 
 * always = 99.9% of the time
+
+## Install
+
+### Install through npm
+
+```bash
+npm install health-check-library --save
+```
+
+## Documentation
+
+### Specification
+
+`health-check-library` **MUST** expose a **GET /_health** route that yield a **200 HTTP status code**.
+`health-check-library` follows [semver](http://semver.org) so any non-backward-compatible change will be a major release.
+
+## Contribute
+
+Look at contribution guidelines here : [CONTRIBUTING.md](CONTRIBUTING.md)
