@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: yarn install
+          command: yarn install && yarn global add mocha
       - run:
           name: Run tests
           command: mocha -C -t 10000 -R xunit-file **/*.test.js~node_modules/*
