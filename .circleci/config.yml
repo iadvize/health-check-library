@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: yarn install && yarn add mocha
+          command: npm install
       - run:
           name: Run tests
-          command: $(yarn bin)/mocha -C -t 10000 javascript/**/*.test.js
+          command: $(npm bin)/mocha -C -t 10000 javascript/**/*.test.js

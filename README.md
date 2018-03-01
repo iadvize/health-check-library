@@ -1,4 +1,4 @@
-health-check-library [![Deps](https://david-dm.org/iadvize/health-check-library.png)](https://david-dm.org/iadvize/health-check-library) [![Version](http://badge.fury.io/js/health-check-library.png)](https://david-dm.org/iadvize/health-check-library)
+health-check-library [![CircleCI](https://circleci.com/gh/iadvize/health-check-library.svg?style=svg)](https://circleci.com/gh/iadvize/health-check-library) [![Deps](https://david-dm.org/iadvize/health-check-library.png)](https://david-dm.org/iadvize/health-check-library) [![Version](http://badge.fury.io/js/health-check-library.png)](https://david-dm.org/iadvize/health-check-library)
 ====================
 
 > Expose an health-check API to *-worker or a health-check route for already existing API
