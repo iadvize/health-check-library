@@ -11,4 +11,4 @@ jobs:
           command: yarn install && yarn add mocha
       - run:
           name: Run tests
-          command: $(yarn bin)/mocha -C -t 10000 **/*.test.js~node_modules/*
+          command: $(yarn bin)/mocha -C -t 10000 javascript/**/*.test.js
