@@ -17,13 +17,13 @@
   },
   "homepage": "https://github.com/iadvize/health-check-library",
   "dependencies": {
-    "lodash": "3.*.*"
+    "lodash": "4.*.*"
   },
   "devDependencies": {
     "chai": "^2.2.0",
     "check-build": "*",
     "hapi": "^11.1.4",
-    "mocha": "^5.0.1",
+    "mocha": "^5.2.0",
     "xunit-file": "0.0.6"
   }
 }
