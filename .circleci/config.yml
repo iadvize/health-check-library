@@ -1,14 +1,42 @@
-version: 2
-jobs:
+version: 2.1
+
+orbs:
+  ci-cd: iadvize/ci-cd@volatile
+
+context: &context
+  context: org-global
+
+workflows:
   build:
-    working_directory: ~/health-check-library
-    docker:
-      - image: circleci/node:7
-    steps:
-      - checkout
-      - run:
-          name: Install dependencies
-          command: npm install
-      - run:
-          name: Run tests
-          command: $(npm bin)/mocha -C -t 10000 javascript/**/*.test.js
+    jobs:
+      - ci-cd/node_lib:
+          context:
+            - org-global
+            - org-lib
+          # The test suite needs hapi@11 (devDependency), which calls os.tmpDir():
+          # it only runs cleanly up to Node 10. Node 10 ships npm 6, which lacks the
+          # `npm pkg` command the orb's publish step uses, hence npm 7.
+          executor:
+            name: ci-cd/node
+            node_version: "10.24"
+          post_install_steps:
+            - run:
+                name: Install npm 7
+                command: sudo npm install -g npm@7.24.2
+          filters:
+            branches:
+              ignore: &default-branch master
+            tags:
+              only: /.*/
+  release:
+    jobs:
+      - ci-cd/check_pr_labels:
+          <<: *context
+          filters:
+            branches:
+              ignore: *default-branch
+      - ci-cd/create_release:
+          <<: *context
+          filters:
+            branches:
+              only: *default-branch
