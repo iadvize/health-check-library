@@ -1,24 +1,25 @@
 {
-  "name": "health-check-library",
-  "version": "2.0.1",
+  "name": "@iadvize/health-check-library",
+  "version": "0.0.0",
   "description": "Expose an health-check API to *-worker or a health-check route for already existing API",
   "main": "javascript/hapi/register.js",
   "scripts": {
-    "test": "mocha javascript/**/**.test.js"
+    "test": "mocha javascript/**/**.test.js",
+    "lint:ci": "echo 'No linter configured'",
+    "test:ci": "mocha -C -t 10000 'javascript/**/*.test.js'",
+    "build:ci": "echo 'Nothing to build'"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iadvize/health-check-library.git"
+    "url": "git+https://github.com/iadvize/health-check-library.git"
   },
   "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
-  "license": "iAdvize",
+  "license": "iadvize",
   "bugs": {
     "url": "https://github.com/iadvize/health-check-library/issues"
   },
   "homepage": "https://github.com/iadvize/health-check-library",
-  "dependencies": {
-    "lodash": "3.*.*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "^2.2.0",
     "check-build": "*",
